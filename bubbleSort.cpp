@@ -1,5 +1,36 @@
 #include <iostream>
 
+
+template<class T>
+void swap(T& a, T& b){  
+    T temp = a;
+    a = b;
+    b = temp;
+}
+
+template<class T>
+void bubbleSort(T* array, int size){
+    int i, j;
+    bool swapped;
+
+    for (i = 0; i < size-1; i++){
+        swapped = false;
+
+        for (j = 0; j < size-i-1; j++){
+        
+            if (array[j] > array[j+1]){
+                swap(array[j], array[j+1]);
+                swapped = true;
+            }
+     }
+  
+     // condition: No swap then done
+    if (swapped == false)
+        break;
+   }
+}
+
+
 int main() {
     int size = 100;
     int array[size];
@@ -17,7 +48,8 @@ int main() {
 
     std::cout << "\n|After Sort|" << std::endl;
 
-    
+    // bubble sort
+    bubbleSort(array, size);
 
     // print array
     for(int i: array){
